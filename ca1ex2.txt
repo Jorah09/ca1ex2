@@ -1,0 +1,40 @@
+mkdir cai-ex2
+cd cai-ex2
+git init
+echo '*.py' > .gitignore
+git add .
+git commit -m "Initial commit"
+git switch -c feature-auth
+git add temp.cache
+git commit -m "Add auth caching feature"
+git switch main
+echo 'Temporary cached data' > temp.cache
+echo 'Main branch cache update' >> temp.cache
+git branch
+git branch -m master main
+git switch main
+echo 'Temporary cached data' > temp.cache
+echo 'Main branch cache update' >> temp.cache
+git add temp.cache
+git commit -m "Update cache in main branch"
+git merge feature-auth
+git branch
+git status
+git merge feature-auth
+git add temp.cache
+git commit -m "Resolve merge conflict: combine auth and main cache updates"
+git remote add origin https://github.com/Jorah09/ca1ex2.git
+git push -u origin main
+git pull origin main
+Get-History | ? CommandLine -match "git" | % CommandLine > ca1ex2.txt
+echo "Repo URL: https://github.com/Jorah09/ca1ex2" >> ca1ex2.txt
+git add ca1ex2.txt
+git commit -m "Final Commit on Main with ca1ex2.txt"
+git push
+git log --oneline --graph --all
+git switch main
+git pull origin main
+git branch
+git switch main
+git pull origin main
+Repo URL: https://github.com/Jorah09/ca1ex2
